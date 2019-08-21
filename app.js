@@ -13,6 +13,8 @@ var app = express();
 
 app.listen(3001, () => console.log('cool 3001'))
 
+var price;
+
 fetch('https://api.estadisticasbcra.com/usd_of_minorista',{
     headers: { 
       'Content-Type': 'application/json',
@@ -20,7 +22,7 @@ fetch('https://api.estadisticasbcra.com/usd_of_minorista',{
     })
     .then(res => res.json())
     .then(json => {
-      const price = json[json.length - 1].v
+      price = json[json.length - 1].v
       return console.log(price);
     });
 
